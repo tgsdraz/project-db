@@ -3,7 +3,7 @@
         <div class="movie-temp-wrapper">
             <div class="movie-header">
                 <span class="movie-title">{{movieList1.title}}</span>
-                <span class="movie-more">更多</span>
+                <span class="movie-more" @click="toMore('in_theaters')">更多</span>
             </div>
             <div class="movie-wrapper" ref="movieWrapper1">
                 <ul class="movie-list">
@@ -16,11 +16,24 @@
         <div class="movie-temp-wrapper">
             <div class="movie-header">
                 <span class="movie-title">{{movieList2.title}}</span>
-                <span class="movie-more">更多</span>
+                <span class="movie-more" @click="toMore('coming_soon')">更多</span>
             </div>
             <div class="movie-wrapper" ref="movieWrapper2">
                 <ul class="movie-list">
                     <li class="single-movie" v-for="(item,index) in movieList2.subjects" :key="index" @click='toMovie(item.id)'>
+                        <movie :singleMovie="item"></movie>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="movie-temp-wrapper">
+            <div class="movie-header">
+                <span class="movie-title">{{movieTop.title}}</span>
+                <span class="movie-more" @click="toMore('top250')">更多</span>
+            </div>
+            <div class="movie-wrapper" ref="movieWrapper2">
+                <ul class="movie-list">
+                    <li class="single-movie" v-for="(item,index) in movieTop.subjects" :key="index" @click='toMovie(item.id)'>
                         <movie :singleMovie="item"></movie>
                     </li>
                 </ul>
@@ -39,6 +52,9 @@ export default {
     },
     movieList2: {
       type: Object
+    },
+    movieTop:{
+        type:Object
     }
   },
   components: {
@@ -75,6 +91,9 @@ export default {
     },
     toMovie($id){
         window.location.href = 'http://localhost:8080/#/movieInfo?id='+$id
+    },
+    toMore(type){
+        window.location.href = "http://localhost:8080/#/more?type="+type
     }
   }
 };

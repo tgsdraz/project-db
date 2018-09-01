@@ -85,11 +85,6 @@ created() {
 <style lang='stylus'>
 #movie-info
     width: 100%;
-    position: absolute;
-    left: 0;
-    top: 4.8rem;
-    margin: auto;
-    padding: 0 1rem;
     .movie-info-wrapper
         width 100%
         padding 2rem 1rem 0 1rem 

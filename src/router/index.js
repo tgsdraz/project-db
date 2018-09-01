@@ -9,6 +9,7 @@ import eventList from '../components/eventList'
 import movieInfo from '../components/movieInfo'
 import regedit from '../components/regedit'
 import login from '../components/login'
+import more from '../components/more'
 Vue.use(Router)
 
 export default new Router({
@@ -60,9 +61,15 @@ export default new Router({
       component: login
     },
     {
+      path: '/more',
+      name: 'more',
+      component: more
+    },
+    {
       path: '/',
       name: 'login',
       component: login
     },
+   
   ]
 })

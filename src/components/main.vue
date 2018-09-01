@@ -55,7 +55,7 @@ export default {
         })
         this.$nextTick(()=>{
             window.addEventListener('scroll',()=>{
-                if(window.scrollY + window.innerHeight-48 > this.$refs.main.offsetHeight){
+                if(window.scrollY + window.innerHeight-60 >= this.$refs.main.offsetHeight){
                     index += 10
                     axios({method:'GET',url:'/api/event/list?loc=118221&start='+ index +'&count=10'}).then(res => {
                         this.eventList = this.eventList.concat(res.data.events)
@@ -69,10 +69,6 @@ export default {
 <style lang="stylus">
 #main
     width 100%
-    position absolute
-    left 0
-    top 4.8rem
-    padding 0 1rem 
     .main-menu
         width 100%
         display flex
