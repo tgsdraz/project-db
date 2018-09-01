@@ -1,0 +1,54 @@
+{
+    "books":[
+        {
+            "img":"/static/img/1.86d096f.jpg",
+            "title":"深蓝的故事",
+            "author":"深蓝"
+        },
+        {
+            "img":"/static/img/1.86d096f.jpg",
+            "title":"死灵之书",
+            "author":"[美]H.P.洛夫克拉夫特 / [英]莱斯·爱德华兹（绘）"
+        },
+        {
+            "img":"/static/img/1.86d096f.jpg",
+            "title":"经济学的思维方式",
+            "author":"托马斯·索维尔"
+        },
+        {
+            "img":"/static/img/1.86d096f.jpg",
+            "title":"中国民间故事",
+            "author":"钱笑呆"
+        },
+        {
+            "img":"/static/img/1.86d096f.jpg",
+            "title":"无中生有的世界",
+            "author":"吴京平"
+        },
+        {
+            "img":"/static/img/1.86d096f.jpg",
+            "title":"深蓝的故事",
+            "author":"深蓝"
+        },
+        {
+            "img":"/static/img/1.86d096f.jpg",
+            "title":"死灵之书",
+            "author":"[美]H.P.洛夫克拉夫特 / [英]莱斯·爱德华兹（绘）"
+        },
+        {
+            "img":"/static/img/1.86d096f.jpg",
+            "title":"经济学的思维方式",
+            "author":"托马斯·索维尔"
+        },
+        {
+            "img":"/static/img/1.86d096f.jpg",
+            "title":"中国民间故事",
+            "author":"钱笑呆"
+        },
+        {
+            "img":"/static/img/1.86d096f.jpg",
+            "title":"无中生有的世界",
+            "author":"吴京平"
+        }
+    ]
+}

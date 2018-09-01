@@ -73,6 +73,6 @@ export default {
     padding 0px 5px
     background #ffffff      
     width 100%
-    height 100vh
+
     
 </style>

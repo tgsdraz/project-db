@@ -1,15 +1,16 @@
 <template>
     <div id="login">
-        <div class="login-title">注册成功</div>
+        <div class="login-title">请登录</div>
         <div class="login-wrapper">
-            <input type="text" id="user" ref="username">
-            <input type="password" id="password" ref="password">
+            <input type="text" id="user" ref="username" placeholder="账号">
+            <input type="password" id="password" ref="password" placeholder="密码">
             <input type="submit" value="登录" id="submit" @click="login">
         </div>
         <div class="user-regedit">
             <button  @click="toRegedit">用户注册</button>
             <button>忘记密码</button>
         </div>
+        <div class="warm-prompt">如无账号请点击用户注册</div>
     </div>
 </template>
 <script>
@@ -23,7 +24,6 @@ export default {
                 if(usernameVal == '' || passwordVal == ''){
                     return 
                 }
-                console.log(datalist)
                 
                 for(let i = 0; i < datalist.length; i++){
                     if(datalist[i].name == usernameVal && datalist[i].password == passwordVal){
@@ -35,7 +35,6 @@ export default {
             })
         },
         toRegedit(){
-            console.log(111)
             window.location.href = 'http://localhost:8080/#/regedit'
         }
     }
@@ -57,7 +56,6 @@ export default {
         justify-content center
         input 
             width 100%
-            // height 2rem
             padding 1rem 2rem
             margin-bottom 2rem
             border 0.1rem solid lime
@@ -79,4 +77,11 @@ export default {
             border 0
             border-radius 0.5rem
             color #ffffff
+    .warm-prompt
+        width 100%
+        height 4rem 
+        font-size 1.6rem
+        color #DBDBDB
+        text-align center
+        line-height 4rem
 </style>

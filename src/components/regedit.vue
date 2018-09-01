@@ -4,9 +4,9 @@
             欢迎加入豆瓣
         </div>
         <div class="regedit-wrapper">
-            <input type="text" name="username" id="user" ref="user">
-            <input type="password" name="password" id="psword" ref="psword">
-            <input type="text" id="alise-name">
+            <input type="text" name="username" id="user" ref="user" placeholder="账号">
+            <input type="password" name="password" id="psword" ref="psword" placeholder="密码">
+            <input type="text" name="alisename" id="alise-name" ref="aliseName" placeholder="昵称">
             <input type="submit" value="立即注册" id="submit" @click="regedit">
         </div>
     </div>
@@ -25,13 +25,13 @@ export default {
     methods:{
         regedit(){
             let obj = {
-                add:(arr)=>{
-                    window.localStorage.setItem('data',JSON.stringify(arr))
-                },
-                get:() => {
-                    return JSON.parse(window.localStorage.getItem("data"))
+                    add:(arr)=>{
+                        window.localStorage.setItem('data',JSON.stringify(arr))
+                    },
+                    get:() => {
+                        return JSON.parse(window.localStorage.getItem("data"))
+                    }
                 }
-            }
             if(window.localStorage){
                 if(obj.get()!==null){
                     this.userInfo = obj.get()
@@ -40,15 +40,18 @@ export default {
             this.$nextTick(()=>{
                     let userVal = this.$refs.user.value
                     let psVal = this.$refs.psword.value
+                    let aliseVal = this.$refs.aliseName.value
                     if(userVal == '' || psVal == ''){
                         alert("账号或密码不能为空")
                         return 
                     }
                     if(this.userInfo.length == 0){
                         this.userInfo.push({
-                                name:userVal,
-                                password:psVal
+                            name:userVal,
+                            password:psVal,
+                            aliseName:aliseVal
                         })
+                        alert('注册成功，点击确定跳转登录页面')
                         window.location.href = 'http://localhost:8080/#/login'
                     }else{
                         for(let i = 0; i < this.userInfo.length;i++){
@@ -57,13 +60,14 @@ export default {
                             }
                         }
                         this.userInfo.push({
-                                name:userVal,
-                                password:psVal
+                            name:userVal,
+                            password:psVal,
+                            aliseName:aliseVal
                         })
+                        alert('注册成功，点击确定跳转登录页面')
                         window.location.href = 'http://localhost:8080/#/login'
                     }
                     obj.add(this.userInfo)
-                    
                 })
             
             }

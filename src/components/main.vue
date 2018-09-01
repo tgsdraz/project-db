@@ -11,7 +11,7 @@
                 <a href="#/regedit">注册账户</a>
             </div> 
             <div class="menu login">
-                <a href="">登录豆瓣</a>
+                <a href="#/login">登录豆瓣</a>
             </div>
         </div>
         <div class="list-wrapper">
@@ -37,7 +37,6 @@ import BScroll from 'better-scroll'
 // import Vuex from 'vuex'
 // import Vue from 'vue'
 // Vue.use(Vuex)
-
 export default {
     data(){
         return {
@@ -55,14 +54,14 @@ export default {
             this.eventList = res.data.events
         })
         this.$nextTick(()=>{
-            // window.addEventListener('scroll',()=>{
-            //     if(window.scrollY + window.innerHeight-48 > this.$refs.main.offsetHeight){
-            //         index += 10
-            //         axios({method:'GET',url:'/api/event/list?loc=118221&start='+ index +'&count=10'}).then(res => {
-            //             this.eventList = this.eventList.concat(res.data.events)
-            //         })
-            //     }
-            // })
+            window.addEventListener('scroll',()=>{
+                if(window.scrollY + window.innerHeight-48 > this.$refs.main.offsetHeight){
+                    index += 10
+                    axios({method:'GET',url:'/api/event/list?loc=118221&start='+ index +'&count=10'}).then(res => {
+                        this.eventList = this.eventList.concat(res.data.events)
+                    })
+                }
+            })
         })
     }
 };
