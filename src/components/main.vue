@@ -34,9 +34,6 @@
 <script>
 import axios from 'axios'
 import BScroll from 'better-scroll'
-// import Vuex from 'vuex'
-// import Vue from 'vue'
-// Vue.use(Vuex)
 export default {
     data(){
         return {
@@ -50,16 +47,23 @@ export default {
     },
     created(){
         let index = 0
-        axios({method:'GET',url:'/api/event/list?loc=118221&start='+ index +'&count=10'}).then(res => {
-            this.eventList = res.data.events
-        })
+        let fn = (index) => {
+            let flag = true
+            if(flag){
+                flag = false
+                 axios({method:'GET',url:'/api/event/list?loc=118221&start='+ index +'&count=10'}).then(res => {
+                    this.eventList = this.eventList.concat(res.data.events)
+                    flag = true
+                })
+            }
+            
+        }
+        fn(index)
         this.$nextTick(()=>{
             window.addEventListener('scroll',()=>{
                 if(window.scrollY + window.innerHeight-60 >= this.$refs.main.offsetHeight){
                     index += 10
-                    axios({method:'GET',url:'/api/event/list?loc=118221&start='+ index +'&count=10'}).then(res => {
-                        this.eventList = this.eventList.concat(res.data.events)
-                    })
+                    fn(index)
                 }
             })
         })

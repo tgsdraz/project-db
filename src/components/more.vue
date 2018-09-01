@@ -33,14 +33,24 @@ export default {
         }
     },
     created(){
+        
         let index = 0
         let href = window.location.href
         let type = href.split('?')[1].split('=')[1]
         let fn = (type,index) => {
-            axios({method:'GET',url:'/api/movie/'+ type +'?city=118221&start='+ index +'&count=10'}).then(res => {
-                this.movieMore = res.data
-                this.movieArr = this.movieArr.concat(this.movieMore.subjects)
-            })
+            let flag = true
+            if(flag){
+                flag = false
+                axios({method:'GET',url:'/api/movie/'+ type +'?city=118221&start='+ index +'&count=10'}).then(res => {
+                    this.movieMore = res.data
+                    this.movieArr = this.movieArr.concat(this.movieMore.subjects)
+                    if(res == null){
+                        return 
+                    }
+                    flag = true
+                })
+            }
+            
         }
         fn(type,index)
         this.$nextTick(() => {
