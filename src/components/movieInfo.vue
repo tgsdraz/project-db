@@ -5,7 +5,7 @@
             <div class="movie-info-title">{{movie.title}}</div>
             <div class="movie-info-content">
                 <div class="movie-info-introduce">
-                    <div class="movie-info-rating">
+                    <div class="movie-rating-wrapper">
                         <rating-temp :rating="rating"></rating-temp>
                         <span class='movie-info-rating'>{{movie.rating.average}}</span>
                         <span class="text">{{movie.rating.stars}}人评价</span>
@@ -67,13 +67,8 @@ created() {
                             this.directors += item.name + ' / '
                         }
                     })
-                    console.log(this.casts,this.genres,this.directors)
-                //     this.$nextTick(() => {
-                // // this.$refs.eventInfoDetails.innerHTML = this.event.content
-                //     });
                 }
             });
-            console.log(this.movie)
         });
     }
     fn('in_theaters')
@@ -100,8 +95,9 @@ created() {
             display flex
             .movie-info-introduce
                 flex 1
-                .movie-info-rating
+                .movie-rating-wrapper
                     display flex
+                    align-items center
                     margin-bottom 0.5rem
                     .movie-info-rating,.text
                         color rgba(7,17,27,0.5)
@@ -116,8 +112,8 @@ created() {
                         color #00b600
                         font-size 1.6rem
             .movie-info-img
-                flex 0 0 12rem
-                margin-left 2rem
+                flex 0 0 10rem
+                margin-left 1rem
                 img 
                     width 100%
         .movie-status

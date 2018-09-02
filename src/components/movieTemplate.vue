@@ -31,7 +31,7 @@
                 <span class="movie-title">{{movieTop.title}}</span>
                 <span class="movie-more" @click="toMore('top250')">更多</span>
             </div>
-            <div class="movie-wrapper" ref="movieWrapper2">
+            <div class="movie-wrapper" ref="movieWrapper3">
                 <ul class="movie-list">
                     <li class="single-movie" v-for="(item,index) in movieTop.subjects" :key="index" @click='toMovie(item.id)'>
                         <movie :singleMovie="item"></movie>
@@ -77,6 +77,13 @@ export default {
                     eventPassthrough:'vertical'
                 })
                 this.scroll = new BScroll(this.$refs.movieWrapper2,{
+                    startX:0,
+                    click:true,
+                    scrollX:true,
+                    scrollY:false,
+                    eventPassthrough:'vertical'
+                })
+                this.scroll = new BScroll(this.$refs.movieWrapper3,{
                     startX:0,
                     click:true,
                     scrollX:true,

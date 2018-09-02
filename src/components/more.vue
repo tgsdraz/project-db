@@ -3,7 +3,7 @@
         <div class="more-movies-title">{{movieMore.title}}</div>
         <div class="more-movies-content">
             <ul class="more-movies-list">
-                <li class="more-single-movie" v-for="(item,index) in movieArr" :key="index">
+                <li class="more-single-movie" v-for="(item,index) in movieArr" :key="index" @click="toMovieInfo(item.id)">
                     <div class="more-movie-img">
                         <img :src="item.images.medium" alt="">
                     </div>
@@ -44,6 +44,7 @@ export default {
                 axios({method:'GET',url:'/api/movie/'+ type +'?city=118221&start='+ index +'&count=10'}).then(res => {
                     this.movieMore = res.data
                     this.movieArr = this.movieArr.concat(this.movieMore.subjects)
+                    console.log(this.movieArr)
                     if(res == null){
                         return 
                     }
@@ -61,6 +62,11 @@ export default {
                 }
             })
         })
+    },
+    methods:{
+        toMovieInfo($id){
+            window.location.href = 'http://localhost:8080/#/movieInfo?id='+$id
+        }
     }
 }
 </script>
@@ -103,5 +109,6 @@ export default {
                     width 100%
                     display flex
                     justify-content center
+                    align-items center
 
 </style>
